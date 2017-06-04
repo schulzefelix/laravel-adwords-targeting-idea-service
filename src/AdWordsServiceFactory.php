@@ -2,11 +2,11 @@
 
 namespace SchulzeFelix\AdWords;
 
-use Google\AdsApi\AdWords\v201705\o\TargetingIdeaService;
-use Google\AdsApi\AdWords\AdWordsSession;
 use Google\AdsApi\AdWords\AdWordsServices;
-use Google\AdsApi\Common\OAuth2TokenBuilder;
+use Google\AdsApi\AdWords\AdWordsSession;
 use Google\AdsApi\AdWords\AdWordsSessionBuilder;
+use Google\AdsApi\AdWords\v201705\o\TargetingIdeaService;
+use Google\AdsApi\Common\OAuth2TokenBuilder;
 
 class AdWordsServiceFactory
 {
@@ -22,6 +22,7 @@ class AdWordsServiceFactory
 
     /**
      * @param array $config
+     *
      * @return AdWordsSession
      *
      * Generate a refreshable OAuth2 credential for authentication.
@@ -49,5 +50,4 @@ class AdWordsServiceFactory
     {
         return new AdWordsService($targetingIdeaService);
     }
-
 }

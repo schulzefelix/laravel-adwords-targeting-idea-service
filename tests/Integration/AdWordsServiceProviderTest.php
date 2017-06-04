@@ -6,7 +6,6 @@ use SchulzeFelix\AdWords\Exceptions\InvalidConfiguration;
 
 class AdWordsServiceProviderTest extends TestCase
 {
-
     /** @test */
     public function it_will_throw_an_exception_if_no_developer_token_is_set()
     {
@@ -20,7 +19,7 @@ class AdWordsServiceProviderTest extends TestCase
     /**
      * Assert that the session has a given list of values.
      *
-     * @param  array $bindings
+     * @param array $bindings
      *
      * @return void
      */
@@ -42,8 +41,8 @@ class AdWordsServiceProviderTest extends TestCase
     /**
      * Assert that the session has a given list of values.
      *
-     * @param  string|array $key
-     * @param  mixed $value
+     * @param string|array $key
+     * @param mixed        $value
      *
      * @return void
      */
@@ -55,7 +54,7 @@ class AdWordsServiceProviderTest extends TestCase
     /**
      * Set the session to the given array.
      *
-     * @param  array $data
+     * @param array $data
      *
      * @return void
      */
@@ -67,8 +66,8 @@ class AdWordsServiceProviderTest extends TestCase
     /**
      * Assert that the session has errors bound.
      *
-     * @param  string|array $bindings
-     * @param  mixed $format
+     * @param string|array $bindings
+     * @param mixed        $format
      *
      * @return void
      */

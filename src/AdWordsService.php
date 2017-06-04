@@ -1,19 +1,21 @@
-<?php namespace SchulzeFelix\AdWords;
+<?php
+
+namespace SchulzeFelix\AdWords;
 
 use Google\AdsApi\AdWords\v201705\cm\ApiException;
+use Google\AdsApi\AdWords\v201705\cm\Language;
+use Google\AdsApi\AdWords\v201705\cm\Location;
+use Google\AdsApi\AdWords\v201705\cm\NetworkSetting;
 use Google\AdsApi\AdWords\v201705\cm\Paging;
 use Google\AdsApi\AdWords\v201705\cm\RateExceededError;
 use Google\AdsApi\AdWords\v201705\o\AttributeType;
 use Google\AdsApi\AdWords\v201705\o\IdeaType;
 use Google\AdsApi\AdWords\v201705\o\LanguageSearchParameter;
-use Google\AdsApi\AdWords\v201705\o\TargetingIdeaSelector;
-use Google\AdsApi\AdWords\v201705\o\TargetingIdeaService;
-use Google\AdsApi\AdWords\v201705\cm\Language;
-use Google\AdsApi\AdWords\v201705\cm\Location;
-use Google\AdsApi\AdWords\v201705\cm\NetworkSetting;
 use Google\AdsApi\AdWords\v201705\o\LocationSearchParameter;
 use Google\AdsApi\AdWords\v201705\o\NetworkSearchParameter;
 use Google\AdsApi\AdWords\v201705\o\RelatedToQuerySearchParameter;
+use Google\AdsApi\AdWords\v201705\o\TargetingIdeaSelector;
+use Google\AdsApi\AdWords\v201705\o\TargetingIdeaService;
 
 class AdWordsService
 {
@@ -31,6 +33,7 @@ class AdWordsService
 
     /**
      * Query the Google AdWords TargetingIdeaService with given parameters.
+     *
      * @param array $keywords
      * @param $requestType
      * @param $language
@@ -38,8 +41,10 @@ class AdWordsService
      * @param bool $withTargetedMonthlySearches
      * @param $included
      * @param $excluded
-     * @return \Google\AdsApi\AdWords\v201705\o\TargetingIdeaPage
+     *
      * @throws ApiException
+     *
+     * @return \Google\AdsApi\AdWords\v201705\o\TargetingIdeaPage
      */
     public function performQuery(array $keywords, $requestType, $language = null, $location = null, $withTargetedMonthlySearches = false, $included = null, $excluded = null)
     {
@@ -55,22 +60,19 @@ class AdWordsService
         $currentTry = 0;
 
         while (true) {
-
             try {
                 $results = $this->targetingIdeaService->get($selector);
+
                 return $results;
             } catch (ApiException $exception) {
-
                 $error = $exception->getErrors()[0];
-                if($error instanceof RateExceededError and ++$currentTry == self::MAX_RETRIES) {
+                if ($error instanceof RateExceededError and ++$currentTry == self::MAX_RETRIES) {
                     sleep($error->getRetryAfterSeconds());
                 } else {
                     throw $exception;
                 }
             }
-
         }
-
     }
 
     /**
@@ -83,11 +85,12 @@ class AdWordsService
 
     /**
      * @param bool $withTargetedMonthlySearches
+     *
      * @return array
      */
     private function getRequestedAttributeTypes($withTargetedMonthlySearches = false)
     {
-        if($withTargetedMonthlySearches) {
+        if ($withTargetedMonthlySearches) {
             return [
                 AttributeType::KEYWORD_TEXT,
                 AttributeType::SEARCH_VOLUME,
@@ -111,6 +114,7 @@ class AdWordsService
      * @param $locationId
      * @param $included
      * @param $excluded
+     *
      * @return array
      */
     private function getSearchParameters(array $keywords, $languageId, $locationId, $included, $excluded)
@@ -118,7 +122,7 @@ class AdWordsService
         $searchParameters = [];
 
         //Create Language Parameter
-        if(!is_null($languageId)) {
+        if (!is_null($languageId)) {
             $languageParameter = new LanguageSearchParameter();
             $language = new Language();
             $language->setId($languageId);
@@ -127,7 +131,7 @@ class AdWordsService
         }
 
         //Create Location Parameter
-        if(!is_null($locationId)) {
+        if (!is_null($locationId)) {
             $locationParameter = new LocationSearchParameter();
             $location = new Location();
             $location->setId($locationId);
@@ -164,6 +168,4 @@ class AdWordsService
 
         return $searchParameters;
     }
-
-
 }

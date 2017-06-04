@@ -2,8 +2,8 @@
 
 namespace SchulzeFelix\AdWords\Tests\Integration;
 
-use SchulzeFelix\AdWords\AdWordsFacade;
 use Orchestra\Testbench\TestCase as Orchestra;
+use SchulzeFelix\AdWords\AdWordsFacade;
 use SchulzeFelix\AdWords\AdWordsServiceProvider;
 
 abstract class TestCase extends Orchestra
@@ -12,6 +12,7 @@ abstract class TestCase extends Orchestra
     {
         parent::setUp();
     }
+
     /**
      * @param \Illuminate\Foundation\Application $app
      *
@@ -23,6 +24,7 @@ abstract class TestCase extends Orchestra
             AdWordsServiceProvider::class,
         ];
     }
+
     /**
      * @param \Illuminate\Foundation\Application $app
      *
