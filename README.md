@@ -14,7 +14,7 @@
 This package can be installed through Composer.
 
 ``` bash
-$ composer require schulzefelix/laravel-adwords
+$ composer require schulzefelix/laravel-adwords-targeting-idea-service
 ```
 
 You must install this service provider.
@@ -46,13 +46,46 @@ php artisan vendor:publish --provider="SchulzeFelix\AdWords\AdWordsServiceProvid
 ```
 
 ## Usage
+All methods will return an `Illuminate\Support\Collection`-instance.
 
-- [Introduction](#introduction)
+Here are two basic example to retrieve search volumes for several keywords and new keyword ideas for a given word.
+### Search Volumes
+
+```php
+$searchVolumes = AdWords::searchVolumes(['cheesecake', 'coffee']);
+```
+
+### Keyword Ideas
+
+```php
+$keywordIdeas = AdWords::keywordIdeas('coffee');
+```
+
+## Provided fluent configuration
+
+### Set Location
+For Criteria ID see [https://developers.google.com/adwords/api/docs/appendix/geotargeting](https://developers.google.com/adwords/api/docs/appendix/geotargeting)
+```php
+AdWords::location(2276)->searchVolumes(['cheesecake', 'coffee']);
+```
+
+### Set Language
+For Criteria ID see [https://developers.google.com/adwords/api/docs/appendix/codes-formats#languages](https://developers.google.com/adwords/api/docs/appendix/codes-formats#languages)
+```php
+AdWords::location(2276)->language(1001)->searchVolumes(['cheesecake', 'coffee']);
+```
+
+### Include Targeted Monthly Searches
+```php
+AdWords::withTargetedMonthlySearches()->searchVolumes(['cheesecake', 'coffee']);
+```
+
+### Include And Exclude Words For Keyword Ideas
+```php
+AdWords::location(2642)->withTargetedMonthlySearches()->exclude(['iphone'])->include(['apple'])->keywordIdeas('iphone')
+```
 
 
-<a name="introduction"></a>
-## Introduction
-Coming Soon
 
 ## Change log
 
