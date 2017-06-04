@@ -103,8 +103,8 @@ class AdWords
         }
 
         return $keywordIdeas;
-
     }
+
     /**
      * Include Targeted Monthly Searches.
      *

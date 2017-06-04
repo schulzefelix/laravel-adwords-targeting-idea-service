@@ -156,12 +156,12 @@ class AdWordsService
         $relatedToQuerySearchParameter->setQueries($keywords);
         $searchParameters[] = $relatedToQuerySearchParameter;
 
-        if(!is_null($included) or !is_null($excluded)){
+        if (!is_null($included) || !is_null($excluded)) {
             $ideaTextFilterSearchParameter = new IdeaTextFilterSearchParameter();
-            if(!is_null($included)) {
+            if (!is_null($included)) {
                 $ideaTextFilterSearchParameter->setIncluded($included);
             }
-            if(!is_null($excluded)) {
+            if (!is_null($excluded)) {
                 $ideaTextFilterSearchParameter->setExcluded($excluded);
             }
             $searchParameters[] = $ideaTextFilterSearchParameter;
