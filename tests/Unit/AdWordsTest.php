@@ -25,5 +25,4 @@ class AdWordsTest extends TestCase
     {
         Mockery::close();
     }
-
 }

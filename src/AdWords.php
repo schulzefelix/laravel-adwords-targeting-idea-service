@@ -1,4 +1,6 @@
-<?php namespace SchulzeFelix\AdWords;
+<?php
+
+namespace SchulzeFelix\AdWords;
 
 use Google\AdsApi\AdWords\v201705\o\AttributeType;
 use Google\AdsApi\AdWords\v201705\o\RequestType;
@@ -28,6 +30,7 @@ class AdWords
 
     /**
      * AdWords constructor.
+     *
      * @param AdWordsService $service
      */
     public function __construct(AdWordsService $service)
@@ -37,6 +40,7 @@ class AdWords
 
     /**
      * @param array $keywords
+     *
      * @return Collection
      */
     public function searchVolumes(array $keywords)
@@ -48,9 +52,8 @@ class AdWords
         $chunks = array_chunk($keywords, self::CHUNK_SIZE);
 
         foreach ($chunks as $index => $keywordChunk) {
-
             $results = $this->service->performQuery($keywordChunk, $requestType, $this->language, $this->location, $this->withTargetedMonthlySearches);
-            if($results->getEntries() !== null){
+            if ($results->getEntries() !== null) {
                 foreach ($results->getEntries() as $targetingIdea) {
                     $keyword = $this->extractKeyword($targetingIdea);
                     $searchVolumes->push($keyword);
@@ -58,18 +61,17 @@ class AdWords
             }
         }
 
-        $missingKeywords =  array_diff ( $keywords , $searchVolumes->pluck('keyword')->toArray() );
+        $missingKeywords = array_diff($keywords, $searchVolumes->pluck('keyword')->toArray());
 
         foreach ($missingKeywords as $missingKeyword) {
-
             $missingKeywordInstance = new Keyword([
-                'keyword' => $missingKeyword,
+                'keyword'       => $missingKeyword,
                 'search_volume' => null,
-                'cpc' => null,
-                'competition' => null,
+                'cpc'           => null,
+                'competition'   => null,
             ]);
 
-            if($this->withTargetedMonthlySearches) {
+            if ($this->withTargetedMonthlySearches) {
                 $missingKeywordInstance->targeted_monthly_searches = null;
             }
 
@@ -77,11 +79,10 @@ class AdWords
         }
 
         return $searchVolumes;
-
     }
 
     /**
-     * Include Targeted Monthly Searches
+     * Include Targeted Monthly Searches.
      *
      * @return $this
      */
@@ -93,7 +94,7 @@ class AdWords
     }
 
     /**
-     * Add Language Search Parameter
+     * Add Language Search Parameter.
      *
      * @return $this
      */
@@ -105,7 +106,7 @@ class AdWords
     }
 
     /**
-     * Add Location Search Parameter
+     * Add Location Search Parameter.
      *
      * @return $this
      */
@@ -116,7 +117,6 @@ class AdWords
         return $this;
     }
 
-
     /**
      * @return TargetingIdeaService
      */
@@ -125,11 +125,9 @@ class AdWords
         return $this->service->getTargetingIdeaService();
     }
 
-
     /**
-     * Private Functions
+     * Private Functions.
      */
-
     private function prepareKeywords(array $keywords)
     {
         $keywords = array_map('trim', $keywords);
@@ -143,6 +141,7 @@ class AdWords
 
     /**
      * @param $targetingIdea
+     *
      * @return Keyword
      */
     private function extractKeyword($targetingIdea)
@@ -160,23 +159,22 @@ class AdWords
             ($data[AttributeType::COMPETITION]->getValue() !== null)
                 ? $data[AttributeType::COMPETITION]->getValue() : 0;
 
-
         $result = new Keyword([
-            'keyword' => $keyword,
-            'search_volume' => $search_volume,
-            'cpc' => $average_cpc,
-            'competition' => $competition,
+            'keyword'                   => $keyword,
+            'search_volume'             => $search_volume,
+            'cpc'                       => $average_cpc,
+            'competition'               => $competition,
             'targeted_monthly_searches' => null,
         ]);
 
-        if($this->withTargetedMonthlySearches) {
+        if ($this->withTargetedMonthlySearches) {
             $targeted_monthly_searches =
                 ($data[AttributeType::TARGETED_MONTHLY_SEARCHES]->getValue() !== null)
                     ? $data[AttributeType::TARGETED_MONTHLY_SEARCHES]->getValue() : 0;
             $targetedMonthlySearches = collect($targeted_monthly_searches)
                 ->transform(function ($item, $key) {
                     return new MonthlySearchVolume([
-                        'year' => $item->getYear(),
+                        'year'  => $item->getYear(),
                         'month' => $item->getMonth(),
                         'count' => $item->getCount(),
                     ]);
@@ -187,5 +185,4 @@ class AdWords
 
         return $result;
     }
-
 }

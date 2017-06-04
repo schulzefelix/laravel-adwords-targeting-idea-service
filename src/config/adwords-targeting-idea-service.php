@@ -1,4 +1,5 @@
 <?php
+
 return [
 
     /*
@@ -14,8 +15,8 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'client_id' => env('ADWORDS_CLIENT_ID'),
-    'client_secret' => env('ADWORDS_CLIENT_SECRET'),
+    'client_id'            => env('ADWORDS_CLIENT_ID'),
+    'client_secret'        => env('ADWORDS_CLIENT_SECRET'),
     'client_refresh_token' => env('ADWORDS_CLIENT_REFRESH_TOKEN'),
 
     /*
