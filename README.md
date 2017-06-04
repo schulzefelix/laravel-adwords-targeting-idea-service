@@ -82,7 +82,7 @@ AdWords::withTargetedMonthlySearches()->searchVolumes(['cheesecake', 'coffee']);
 
 ### Include And Exclude Words For Keyword Ideas
 ```php
-AdWords::location(2642)->withTargetedMonthlySearches()->exclude(['iphone'])->include(['apple'])->keywordIdeas('iphone')
+AdWords::location(2642)->exclude(['iphone'])->include(['apple'])->keywordIdeas('iphone');
 ```
 
 
