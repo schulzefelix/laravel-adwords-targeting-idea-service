@@ -1,12 +1,13 @@
 {
     "name": "schulzefelix/laravel-adwords-targeting-idea-service",
     "type": "library",
-    "description": "",
+    "description": "Laravel wrapper for the AdWords Targeting Idea Service",
     "keywords": [
         "SchulzeFelix",
         "Laravel AdWords",
         "AdWords",
-        "Laravel"
+        "Laravel",
+        "Targeting Idea Service"
     ],
     "homepage": "https://github.com/SchulzeFelix/laravel-adwords-targeting-idea-service",
     "license": "MIT",
