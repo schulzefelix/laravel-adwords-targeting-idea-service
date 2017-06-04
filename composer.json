@@ -1,0 +1,42 @@
+{
+    "name": "schulzefelix/laravel-adwords-targeting-idea-service",
+    "type": "library",
+    "description": "",
+    "keywords": [
+        "SchulzeFelix",
+        "Laravel AdWords",
+        "AdWords",
+        "Laravel"
+    ],
+    "homepage": "https://github.com/SchulzeFelix/laravel-adwords-targeting-idea-service",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Felix Schulze",
+            "email": "githubissues@schulze.co",
+            "homepage": "https://schulze.co",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : "^7.0",
+        "illuminate/support": "~5.1",
+        "googleads/googleads-php-lib": "^27.0",
+        "schulzefelix/laravel-data-transfer-object": "^1.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "^6.1",
+        "mockery/mockery": "^0.9.5",
+        "orchestra/testbench" : "~3.4.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "SchulzeFelix\\AdWords\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SchulzeFelix\\AdWords\\Tests\\": "tests"
+        }
+    }
+}
