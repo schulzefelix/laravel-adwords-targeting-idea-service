@@ -118,7 +118,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/schulzefelix/laravel-adwords-targeting-idea-service/master.svg?style=flat-square
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/schulzefelix/laravel-adwords-targeting-idea-service.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/schulzefelix/laravel-adwords-targeting-idea-servicesvg?style=flat-square
+[ico-code-quality]: https://scrutinizer-ci.com/g/schulzefelix/laravel-adwords-targeting-idea-service/badges/quality-score.png?b=master
 [ico-downloads]: https://img.shields.io/packagist/dt/schulzefelix/laravel-adwords-targeting-idea-service.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/schulzefelix/laravel-adwords-targeting-idea-service
