@@ -28,6 +28,12 @@ class AdWords
     /** @var int|null */
     protected $location = null;
 
+    /** @var array|null */
+    protected $include = null;
+
+    /** @var array|null */
+    protected $exclude = null;
+
     /**
      * AdWords constructor.
      *
@@ -83,6 +89,20 @@ class AdWords
 
     public function keywordIdeas($keyword)
     {
+        $keyword = $this->prepareKeywords([$keyword]);
+        $requestType = RequestType::IDEAS;
+
+        $keywordIdeas = new Collection();
+
+        $results = $this->service->performQuery($keyword, $requestType, $this->language, $this->location, $this->withTargetedMonthlySearches, $this->include, $this->exclude);
+        if ($results->getEntries() !== null) {
+            foreach ($results->getEntries() as $targetingIdea) {
+                $keyword = $this->extractKeyword($targetingIdea);
+                $keywordIdeas->push($keyword);
+            }
+        }
+
+        return $keywordIdeas;
 
     }
     /**
@@ -117,6 +137,20 @@ class AdWords
     public function location($location = null)
     {
         $this->location = $location;
+
+        return $this;
+    }
+
+    public function include(array $words)
+    {
+        $this->include = $this->prepareKeywords($words);
+
+        return $this;
+    }
+
+    public function exclude(array $words)
+    {
+        $this->exclude = $this->prepareKeywords($words);
 
         return $this;
     }

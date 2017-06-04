@@ -9,6 +9,7 @@ use Google\AdsApi\AdWords\v201705\cm\NetworkSetting;
 use Google\AdsApi\AdWords\v201705\cm\Paging;
 use Google\AdsApi\AdWords\v201705\cm\RateExceededError;
 use Google\AdsApi\AdWords\v201705\o\AttributeType;
+use Google\AdsApi\AdWords\v201705\o\IdeaTextFilterSearchParameter;
 use Google\AdsApi\AdWords\v201705\o\IdeaType;
 use Google\AdsApi\AdWords\v201705\o\LanguageSearchParameter;
 use Google\AdsApi\AdWords\v201705\o\LocationSearchParameter;
@@ -66,7 +67,7 @@ class AdWordsService
                 return $results;
             } catch (ApiException $exception) {
                 $error = $exception->getErrors()[0];
-                if ($error instanceof RateExceededError and ++$currentTry == self::MAX_RETRIES) {
+                if ($error instanceof RateExceededError and ++$currentTry < self::MAX_RETRIES) {
                     sleep($error->getRetryAfterSeconds());
                 } else {
                     throw $exception;
@@ -155,16 +156,16 @@ class AdWordsService
         $relatedToQuerySearchParameter->setQueries($keywords);
         $searchParameters[] = $relatedToQuerySearchParameter;
 
-//        if(!is_null($included) or !is_null($excluded)){
-//            $ideaTextFilterSearchParameter = new IdeaTextFilterSearchParameter();
-//            if(!is_null($included)) {
-//                $ideaTextFilterSearchParameter->setIncluded($included);
-//            }
-//            if(!is_null($excluded)) {
-//                $ideaTextFilterSearchParameter->setExcluded($excluded);
-//            }
-//            $searchParameters[] = $ideaTextFilterSearchParameter;
-//        }
+        if(!is_null($included) or !is_null($excluded)){
+            $ideaTextFilterSearchParameter = new IdeaTextFilterSearchParameter();
+            if(!is_null($included)) {
+                $ideaTextFilterSearchParameter->setIncluded($included);
+            }
+            if(!is_null($excluded)) {
+                $ideaTextFilterSearchParameter->setExcluded($excluded);
+            }
+            $searchParameters[] = $ideaTextFilterSearchParameter;
+        }
 
         return $searchParameters;
     }
