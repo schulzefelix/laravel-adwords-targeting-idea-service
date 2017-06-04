@@ -80,6 +80,10 @@ class AdWords
 
     }
 
+    public function keywordIdeas($keyword)
+    {
+
+    }
     /**
      * Include Targeted Monthly Searches
      *
