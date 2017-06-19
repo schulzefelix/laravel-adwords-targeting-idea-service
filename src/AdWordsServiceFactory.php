@@ -6,10 +6,14 @@ use Google\AdsApi\AdWords\AdWordsServices;
 use Google\AdsApi\AdWords\AdWordsSession;
 use Google\AdsApi\AdWords\AdWordsSessionBuilder;
 use Google\AdsApi\AdWords\v201705\o\TargetingIdeaService;
+use Google\AdsApi\Common\AdsLoggerFactory;
 use Google\AdsApi\Common\OAuth2TokenBuilder;
 
 class AdWordsServiceFactory
 {
+
+    private static $DEFAULT_SOAP_LOGGER_CHANNEL = 'AW_SOAP';
+
     public static function createForConfig(array $adwordsConfig): AdWordsService
     {
         $session = self::createAuthenticatedAdWordsSessionBuilder($adwordsConfig);
@@ -36,11 +40,19 @@ class AdWordsServiceFactory
             ->withRefreshToken($config['client_refresh_token'])
             ->build();
 
+        $soapLogger = (new AdsLoggerFactory())
+            ->createLogger(
+                self::$DEFAULT_SOAP_LOGGER_CHANNEL,
+                array_get($config, 'soap_log_file_path', null),
+                array_get($config, 'soap_log_level', 'ERROR')
+            );
+
         $session = (new AdWordsSessionBuilder())
             ->withOAuth2Credential($oAuth2Credential)
             ->withDeveloperToken($config['developer_token'])
             ->withUserAgent($config['user_agent'])
             ->withClientCustomerId($config['client_customer_id'])
+            ->withSoapLogger($soapLogger)
             ->build();
 
         return $session;

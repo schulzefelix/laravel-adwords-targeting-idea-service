@@ -35,4 +35,29 @@ return [
 
     'user_agent' => env('ADWORDS_USER_AGENT', ''),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Logging - Path
+    |--------------------------------------------------------------------------
+    |
+    | Supported:
+    |
+    | null (Console Output stderr)
+    | storage_path('logs/soap.log')
+    |
+    */
+
+    'soap_log_file_path' => null,
+
+    /*
+    |--------------------------------------------------------------------------
+    | LOGGING
+    |--------------------------------------------------------------------------
+    |
+    | http://www.php-fig.org/psr/psr-3/#psrlogloglevel
+    | Default: ERROR
+    |
+    */
+
+    'soap_log_level' => env('ADWORDS_SOAP_LOG_LEVEL', 'ERROR'),
 ];
