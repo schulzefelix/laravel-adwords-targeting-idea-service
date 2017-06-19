@@ -39,5 +39,15 @@
         "psr-4": {
             "SchulzeFelix\\AdWords\\Tests\\": "tests"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SchulzeFelix\\AdWords\\AdWordsServiceProvider"
+            ],
+            "aliases": {
+                "AdWords": "SchulzeFelix\\AdWords\\AdWordsFacade"
+            }
+        }
     }
 }
