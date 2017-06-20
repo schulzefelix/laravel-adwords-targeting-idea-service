@@ -83,7 +83,6 @@ class GenerateRefreshTokenCommand extends Command
             'Refresh token: "%s"',
             $authToken['refresh_token']
         ));
-
     }
 
 
