@@ -22,7 +22,8 @@
     "require": {
         "php" : "^7.0",
         "illuminate/support": "~5.1",
-        "googleads/googleads-php-lib": "^27.0",
+        "illuminate/console": "~5.1",
+        "googleads/googleads-php-lib": "~27.1.0",
         "schulzefelix/laravel-data-transfer-object": "^1.0.0"
     },
     "require-dev": {

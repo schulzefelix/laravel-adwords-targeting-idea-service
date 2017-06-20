@@ -45,6 +45,15 @@ You can publish the config file of this package with this command:
 php artisan vendor:publish --provider="SchulzeFelix\AdWords\AdWordsServiceProvider"
 ```
 
+### Generate Refresh Token
+*This requires that the `clientId` and `clientSecret` is from a native application and are filled in your configuration `config/adwords-targeting-idea-service.php`*
+
+``` bash
+$ php artisan adwords:token
+```
+Open the authorization url. Grant access to the app and input the
+access token in the console. Copy the refresh token into your configuration `config/adwords-targeting-idea-service.php`
+
 ## Usage
 All methods will return an `Illuminate\Support\Collection`-instance.
 

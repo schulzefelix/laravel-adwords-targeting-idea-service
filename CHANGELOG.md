@@ -4,6 +4,7 @@ All Notable changes to `Laravel AdWords Targeting Idea Service` will be document
 
 ## 1.1.0
 - Added Configurable SoapLogger
+- Console Command For Generating Refresh Token
 - Auto Discovery For L5.5
 
 ## 1.0.0

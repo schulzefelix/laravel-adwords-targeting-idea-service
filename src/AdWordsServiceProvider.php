@@ -3,6 +3,7 @@
 namespace SchulzeFelix\AdWords;
 
 use Illuminate\Support\ServiceProvider;
+use SchulzeFelix\AdWords\Commands\GenerateRefreshTokenCommand;
 use SchulzeFelix\AdWords\Exceptions\InvalidConfiguration;
 
 class AdWordsServiceProvider extends ServiceProvider
@@ -17,6 +18,7 @@ class AdWordsServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/config/adwords-targeting-idea-service.php' => config_path('adwords-targeting-idea-service.php'),
         ]);
+
     }
 
     /**
@@ -24,7 +26,15 @@ class AdWordsServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->mergeConfigFrom(__DIR__.'/config/adwords-targeting-idea-service.php', 'adwords-targeting-idea-service');
+
         $adwordsConfig = config('adwords-targeting-idea-service');
+
+        $this->app->bind('command.adwords:token', GenerateRefreshTokenCommand::class);
+        $this->commands([
+            'command.adwords:token',
+        ]);
+
 
         $this->app->bind(AdWordsService::class, function () use ($adwordsConfig) {
             return AdWordsServiceFactory::createForConfig($adwordsConfig);
