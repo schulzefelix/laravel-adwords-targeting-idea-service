@@ -46,7 +46,9 @@ php artisan vendor:publish --provider="SchulzeFelix\AdWords\AdWordsServiceProvid
 ```
 
 ### Generate Refresh Token
-*This requires that the `clientId` and `clientSecret` is from a native application and are filled in your configuration `config/adwords-targeting-idea-service.php`*
+This requires that the `clientId` and `clientSecret` are from a **native application**.
+
+Google Console: [https://console.developers.google.com/apis/credentials](https://console.developers.google.com/apis/credentials)
 
 ``` bash
 $ php artisan adwords:token
