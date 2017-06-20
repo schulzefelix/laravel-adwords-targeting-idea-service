@@ -41,7 +41,7 @@ class GenerateRefreshTokenCommand extends Command
     {
         if (!$config = $this->config()) {
             $this->error('Please provide a valid configuration.');
-            exit;
+            return false;
         }
 
         $clientId = $config['client_id'];
@@ -56,6 +56,7 @@ class GenerateRefreshTokenCommand extends Command
             'clientSecret' => $clientSecret,
             'scope' => $scopes
         ]);
+
         $this->info("Please sign in to your AdWords account, and open following url:\n");
         $this->line(sprintf(
             "%s",
@@ -63,22 +64,24 @@ class GenerateRefreshTokenCommand extends Command
                 'access_type' => 'offline',
             ])
         ));
-        // Retrieve token
+
         $accessToken = $this->ask('Insert your access token');
-        // Fetch auth token
+
         try {
             $oauth2->setCode($accessToken);
             $authToken = $oauth2->fetchAuthToken();
         } catch (Exception $exception) {
             $this->error($exception->getMessage());
-            exit;
+            return false;
         }
+
         if (!isset($authToken)) {
             $this->error('Error fetching the refresh token');
-            exit;
+            return false;
         }
+
         $this->comment('Insert the refresh token in your adwords configuration file (config/adwords-targeting-idea-service.php)');
-        // Print refresh token
+
         $this->info(sprintf(
             'Refresh token: "%s"',
             $authToken['refresh_token']
