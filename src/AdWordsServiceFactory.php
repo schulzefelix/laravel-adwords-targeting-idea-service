@@ -11,7 +11,6 @@ use Google\AdsApi\Common\OAuth2TokenBuilder;
 
 class AdWordsServiceFactory
 {
-
     private static $DEFAULT_SOAP_LOGGER_CHANNEL = 'AW_SOAP';
 
     public static function createForConfig(array $adwordsConfig): AdWordsService

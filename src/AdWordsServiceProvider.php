@@ -18,7 +18,6 @@ class AdWordsServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/config/adwords-targeting-idea-service.php' => config_path('adwords-targeting-idea-service.php'),
         ]);
-
     }
 
     /**
