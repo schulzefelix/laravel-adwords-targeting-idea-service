@@ -22,6 +22,9 @@ class AdWords
     /** @var bool */
     protected $withTargetedMonthlySearches = false;
 
+    /** @var bool */
+    protected $convertNullToZero = false;
+
     /** @var int|null */
     protected $language = null;
 
@@ -72,13 +75,13 @@ class AdWords
         foreach ($missingKeywords as $missingKeyword) {
             $missingKeywordInstance = new Keyword([
                 'keyword'       => $missingKeyword,
-                'search_volume' => null,
-                'cpc'           => null,
-                'competition'   => null,
+                'search_volume' => $this->convertNullToZero ? 0 : null,
+                'cpc'           => $this->convertNullToZero ? 0 : null,
+                'competition'   => $this->convertNullToZero ? 0 : null,
             ]);
 
             if ($this->withTargetedMonthlySearches) {
-                $missingKeywordInstance->targeted_monthly_searches = null;
+                $missingKeywordInstance->targeted_monthly_searches = $this->convertNullToZero ? collect() : null;
             }
 
             $searchVolumes->push($missingKeywordInstance);
@@ -113,6 +116,18 @@ class AdWords
     public function withTargetedMonthlySearches()
     {
         $this->withTargetedMonthlySearches = true;
+
+        return $this;
+    }
+
+    /**
+     * Convert Null Values To Zero.
+     *
+     * @return $this
+     */
+    public function convertNullToZero()
+    {
+        $this->convertNullToZero = true;
 
         return $this;
     }

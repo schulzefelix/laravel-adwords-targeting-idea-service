@@ -91,6 +91,11 @@ AdWords::location(2276)->language(1001)->searchVolumes(['cheesecake', 'coffee'])
 AdWords::withTargetedMonthlySearches()->searchVolumes(['cheesecake', 'coffee']);
 ```
 
+### Convert NULL values to Zero
+```php
+AdWords::convertNullToZero()->location(2276)->language(1001)->searchVolumes(['cheesecake', 'coffee']);
+```
+
 ### Include And Exclude Words For Keyword Ideas
 ```php
 AdWords::location(2642)->exclude(['iphone'])->include(['apple'])->keywordIdeas('iphone');
