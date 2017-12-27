@@ -1,6 +1,5 @@
 {
     "name": "schulzefelix/laravel-adwords-targeting-idea-service",
-    "type": "library",
     "description": "Laravel wrapper for the AdWords Targeting Idea Service",
     "keywords": [
         "SchulzeFelix",
@@ -20,16 +19,16 @@
         }
     ],
     "require": {
-        "php" : "^7.0",
-        "illuminate/support": "~5.1",
-        "illuminate/console": "~5.1",
-        "googleads/googleads-php-lib": "~28.0.0",
+        "php": ">=7.0.0",
+        "illuminate/support": "~5.5.0",
+        "illuminate/console": "~5.5.0",
+        "googleads/googleads-php-lib": "~32.0.0",
         "schulzefelix/laravel-data-transfer-object": "^1.0.0"
     },
     "require-dev": {
-        "phpunit/phpunit" : "^6.1",
+        "phpunit/phpunit" : "^6.2",
         "mockery/mockery": "^0.9.5",
-        "orchestra/testbench" : "~3.4.6"
+        "orchestra/testbench": "~3.5.0"
     },
     "autoload": {
         "psr-4": {
@@ -40,6 +39,9 @@
         "psr-4": {
             "SchulzeFelix\\AdWords\\Tests\\": "tests"
         }
+    },
+    "config": {
+        "sort-packages": true
     },
     "extra": {
         "laravel": {

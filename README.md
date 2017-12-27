@@ -17,7 +17,8 @@ This package can be installed through Composer.
 $ composer require schulzefelix/laravel-adwords-targeting-idea-service
 ```
 
-You must install this service provider.
+In Laravel 5.5 the package will autoregister the service provider. If package discovery is disabled add the following.
+
 ```php
 // config/app.php
 'providers' => [
@@ -27,7 +28,7 @@ You must install this service provider.
 ];
 ```
 
-This package also comes with a facade, which provides an easy way to call the the class.
+In Laravel 5.5 the package will autoregister the facade. If package discovery is disabled add the following.
 
 ```php
 // config/app.php
