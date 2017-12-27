@@ -2,8 +2,8 @@
 
 namespace SchulzeFelix\AdWords\Tests\Integration;
 
-use Orchestra\Testbench\TestCase as Orchestra;
 use SchulzeFelix\AdWords\AdWordsFacade;
+use Orchestra\Testbench\TestCase as Orchestra;
 use SchulzeFelix\AdWords\AdWordsServiceProvider;
 
 abstract class TestCase extends Orchestra
