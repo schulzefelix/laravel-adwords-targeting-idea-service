@@ -3,8 +3,8 @@
 namespace SchulzeFelix\AdWords;
 
 use Illuminate\Support\ServiceProvider;
-use SchulzeFelix\AdWords\Commands\GenerateRefreshTokenCommand;
 use SchulzeFelix\AdWords\Exceptions\InvalidConfiguration;
+use SchulzeFelix\AdWords\Commands\GenerateRefreshTokenCommand;
 
 class AdWordsServiceProvider extends ServiceProvider
 {
@@ -33,7 +33,6 @@ class AdWordsServiceProvider extends ServiceProvider
         $this->commands([
             'command.adwords:token',
         ]);
-
 
         $this->app->bind(AdWordsService::class, function () use ($adwordsConfig) {
             return AdWordsServiceFactory::createForConfig($adwordsConfig);
