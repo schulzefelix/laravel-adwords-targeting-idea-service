@@ -25,13 +25,13 @@ class GenerateRefreshTokenCommand extends Command
      */
     const REDIRECT_URI = 'urn:ietf:wg:oauth:2.0:oob';
     /**
-     * Console command signature
+     * Console command signature.
      *
      * @var string
      */
     protected $signature = 'adwords:token';
     /**
-     * Description
+     * Description.
      *
      * @var string
      */
@@ -39,8 +39,9 @@ class GenerateRefreshTokenCommand extends Command
 
     public function handle()
     {
-        if (!$config = $this->config()) {
+        if (! $config = $this->config()) {
             $this->error('Please provide a valid configuration.');
+
             return false;
         }
 
@@ -54,12 +55,12 @@ class GenerateRefreshTokenCommand extends Command
             'tokenCredentialUri' => CredentialsLoader::TOKEN_CREDENTIAL_URI,
             'clientId' => $clientId,
             'clientSecret' => $clientSecret,
-            'scope' => $scopes
+            'scope' => $scopes,
         ]);
 
         $this->info("Please sign in to your AdWords account, and open following url:\n");
         $this->line(sprintf(
-            "%s",
+            '%s',
             $oauth2->buildFullAuthorizationUri([
                 'access_type' => 'offline',
             ])
@@ -72,11 +73,13 @@ class GenerateRefreshTokenCommand extends Command
             $authToken = $oauth2->fetchAuthToken();
         } catch (Exception $exception) {
             $this->error($exception->getMessage());
+
             return false;
         }
 
-        if (!isset($authToken)) {
+        if (! isset($authToken)) {
             $this->error('Error fetching the refresh token');
+
             return false;
         }
 
@@ -88,9 +91,8 @@ class GenerateRefreshTokenCommand extends Command
         ));
     }
 
-
     /**
-     * Configuration
+     * Configuration.
      *
      * @return bool|array
      */
@@ -98,9 +100,10 @@ class GenerateRefreshTokenCommand extends Command
     {
         /** @var null|array $config */
         $config = config('adwords-targeting-idea-service');
-        if (is_null($config) || !count($config)) {
+        if (is_null($config) || ! count($config)) {
             return false;
         }
+
         return $config;
     }
 }

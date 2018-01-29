@@ -2,21 +2,21 @@
 
 namespace SchulzeFelix\AdWords;
 
-use Google\AdsApi\AdWords\v201710\cm\ApiException;
+use Google\AdsApi\AdWords\v201710\cm\Paging;
+use Google\AdsApi\AdWords\v201710\o\IdeaType;
 use Google\AdsApi\AdWords\v201710\cm\Language;
 use Google\AdsApi\AdWords\v201710\cm\Location;
-use Google\AdsApi\AdWords\v201710\cm\NetworkSetting;
-use Google\AdsApi\AdWords\v201710\cm\Paging;
-use Google\AdsApi\AdWords\v201710\cm\RateExceededError;
+use Google\AdsApi\AdWords\v201710\cm\ApiException;
 use Google\AdsApi\AdWords\v201710\o\AttributeType;
-use Google\AdsApi\AdWords\v201710\o\IdeaTextFilterSearchParameter;
-use Google\AdsApi\AdWords\v201710\o\IdeaType;
+use Google\AdsApi\AdWords\v201710\cm\NetworkSetting;
+use Google\AdsApi\AdWords\v201710\cm\RateExceededError;
+use Google\AdsApi\AdWords\v201710\o\TargetingIdeaService;
+use Google\AdsApi\AdWords\v201710\o\TargetingIdeaSelector;
+use Google\AdsApi\AdWords\v201710\o\NetworkSearchParameter;
 use Google\AdsApi\AdWords\v201710\o\LanguageSearchParameter;
 use Google\AdsApi\AdWords\v201710\o\LocationSearchParameter;
-use Google\AdsApi\AdWords\v201710\o\NetworkSearchParameter;
+use Google\AdsApi\AdWords\v201710\o\IdeaTextFilterSearchParameter;
 use Google\AdsApi\AdWords\v201710\o\RelatedToQuerySearchParameter;
-use Google\AdsApi\AdWords\v201710\o\TargetingIdeaSelector;
-use Google\AdsApi\AdWords\v201710\o\TargetingIdeaService;
 
 class AdWordsService
 {
@@ -123,7 +123,7 @@ class AdWordsService
         $searchParameters = [];
 
         //Create Language Parameter
-        if (!is_null($languageId)) {
+        if (! is_null($languageId)) {
             $languageParameter = new LanguageSearchParameter();
             $language = new Language();
             $language->setId($languageId);
@@ -132,7 +132,7 @@ class AdWordsService
         }
 
         //Create Location Parameter
-        if (!is_null($locationId)) {
+        if (! is_null($locationId)) {
             $locationParameter = new LocationSearchParameter();
             $location = new Location();
             $location->setId($locationId);
@@ -156,12 +156,12 @@ class AdWordsService
         $relatedToQuerySearchParameter->setQueries($keywords);
         $searchParameters[] = $relatedToQuerySearchParameter;
 
-        if (!is_null($included) || !is_null($excluded)) {
+        if (! is_null($included) || ! is_null($excluded)) {
             $ideaTextFilterSearchParameter = new IdeaTextFilterSearchParameter();
-            if (!is_null($included)) {
+            if (! is_null($included)) {
                 $ideaTextFilterSearchParameter->setIncluded($included);
             }
-            if (!is_null($excluded)) {
+            if (! is_null($excluded)) {
                 $ideaTextFilterSearchParameter->setExcluded($excluded);
             }
             $searchParameters[] = $ideaTextFilterSearchParameter;
