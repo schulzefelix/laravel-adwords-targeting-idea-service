@@ -5,7 +5,7 @@ namespace SchulzeFelix\AdWords;
 use Google\AdsApi\AdWords\AdWordsServices;
 use Google\AdsApi\AdWords\AdWordsSession;
 use Google\AdsApi\AdWords\AdWordsSessionBuilder;
-use Google\AdsApi\AdWords\v201705\o\TargetingIdeaService;
+use Google\AdsApi\AdWords\v201710\o\TargetingIdeaService;
 use Google\AdsApi\Common\AdsLoggerFactory;
 use Google\AdsApi\Common\OAuth2TokenBuilder;
 

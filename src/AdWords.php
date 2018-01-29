@@ -2,9 +2,9 @@
 
 namespace SchulzeFelix\AdWords;
 
-use Google\AdsApi\AdWords\v201705\o\AttributeType;
-use Google\AdsApi\AdWords\v201705\o\RequestType;
-use Google\AdsApi\AdWords\v201705\o\TargetingIdeaService;
+use Google\AdsApi\AdWords\v201710\o\AttributeType;
+use Google\AdsApi\AdWords\v201710\o\RequestType;
+use Google\AdsApi\AdWords\v201710\o\TargetingIdeaService;
 use Google\AdsApi\Common\Util\MapEntries;
 use Illuminate\Support\Collection;
 use SchulzeFelix\AdWords\Responses\Keyword;

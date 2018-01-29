@@ -2,6 +2,10 @@
 
 All Notable changes to `Laravel AdWords Targeting Idea Service` will be documented in this file.
 
+## [1.3.1] - 2018-01-29
+- Using version 32.1.0 of googleads/googleads-php-lib
+- Using v201710 of AdsApi
+
 ## [1.3.0] - 2017-12-27
 - Using version 32.0.0 of googleads/googleads-php-lib
 - Require Laravel 5.5
