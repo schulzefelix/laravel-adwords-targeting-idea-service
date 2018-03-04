@@ -5,10 +5,10 @@ namespace SchulzeFelix\AdWords;
 use Illuminate\Support\Collection;
 use Google\AdsApi\Common\Util\MapEntries;
 use SchulzeFelix\AdWords\Responses\Keyword;
-use Google\AdsApi\AdWords\v201710\o\RequestType;
-use Google\AdsApi\AdWords\v201710\o\AttributeType;
+use Google\AdsApi\AdWords\v201802\o\RequestType;
+use Google\AdsApi\AdWords\v201802\o\AttributeType;
 use SchulzeFelix\AdWords\Responses\MonthlySearchVolume;
-use Google\AdsApi\AdWords\v201710\o\TargetingIdeaService;
+use Google\AdsApi\AdWords\v201802\o\TargetingIdeaService;
 
 class AdWords
 {
