@@ -2,21 +2,21 @@
 
 namespace SchulzeFelix\AdWords;
 
-use Google\AdsApi\AdWords\v201802\cm\Paging;
-use Google\AdsApi\AdWords\v201802\o\IdeaType;
-use Google\AdsApi\AdWords\v201802\cm\Language;
-use Google\AdsApi\AdWords\v201802\cm\Location;
-use Google\AdsApi\AdWords\v201802\cm\ApiException;
-use Google\AdsApi\AdWords\v201802\o\AttributeType;
-use Google\AdsApi\AdWords\v201802\cm\NetworkSetting;
-use Google\AdsApi\AdWords\v201802\cm\RateExceededError;
-use Google\AdsApi\AdWords\v201802\o\TargetingIdeaService;
-use Google\AdsApi\AdWords\v201802\o\TargetingIdeaSelector;
-use Google\AdsApi\AdWords\v201802\o\NetworkSearchParameter;
-use Google\AdsApi\AdWords\v201802\o\LanguageSearchParameter;
-use Google\AdsApi\AdWords\v201802\o\LocationSearchParameter;
-use Google\AdsApi\AdWords\v201802\o\IdeaTextFilterSearchParameter;
-use Google\AdsApi\AdWords\v201802\o\RelatedToQuerySearchParameter;
+use Google\AdsApi\AdWords\v201809\cm\Paging;
+use Google\AdsApi\AdWords\v201809\o\IdeaType;
+use Google\AdsApi\AdWords\v201809\cm\Language;
+use Google\AdsApi\AdWords\v201809\cm\Location;
+use Google\AdsApi\AdWords\v201809\cm\ApiException;
+use Google\AdsApi\AdWords\v201809\o\AttributeType;
+use Google\AdsApi\AdWords\v201809\cm\NetworkSetting;
+use Google\AdsApi\AdWords\v201809\cm\RateExceededError;
+use Google\AdsApi\AdWords\v201809\o\TargetingIdeaService;
+use Google\AdsApi\AdWords\v201809\o\TargetingIdeaSelector;
+use Google\AdsApi\AdWords\v201809\o\NetworkSearchParameter;
+use Google\AdsApi\AdWords\v201809\o\LanguageSearchParameter;
+use Google\AdsApi\AdWords\v201809\o\LocationSearchParameter;
+use Google\AdsApi\AdWords\v201809\o\IdeaTextFilterSearchParameter;
+use Google\AdsApi\AdWords\v201809\o\RelatedToQuerySearchParameter;
 
 class AdWordsService
 {
@@ -45,7 +45,7 @@ class AdWordsService
      *
      * @throws ApiException
      *
-     * @return \Google\AdsApi\AdWords\v201802\o\TargetingIdeaPage
+     * @return \Google\AdsApi\AdWords\v201809\o\TargetingIdeaPage
      */
     public function performQuery(array $keywords, $requestType, $language = null, $location = null, $withTargetedMonthlySearches = false, $included = null, $excluded = null)
     {
