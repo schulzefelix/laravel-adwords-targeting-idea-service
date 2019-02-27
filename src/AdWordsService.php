@@ -20,7 +20,7 @@ use Google\AdsApi\AdWords\v201809\o\RelatedToQuerySearchParameter;
 
 class AdWordsService
 {
-    const PAGE_LIMIT = 1000;
+    const PAGE_LIMIT = 700;
 
     const MAX_RETRIES = 10;
 
