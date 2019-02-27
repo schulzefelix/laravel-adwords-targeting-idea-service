@@ -5,6 +5,7 @@ All Notable changes to `Laravel AdWords Targeting Idea Service` will be document
 ## [1.3.4] - 2019-02-27
 - Add compatibility with Laravel 5.8
 - Using version 40.0 of googleads/googleads-php-lib
+- Implemented Exponential Backoff for RateExceededError
 
 ## [1.3.3] - 2018-10-30
 - Using version 37.1.0 of googleads/googleads-php-lib

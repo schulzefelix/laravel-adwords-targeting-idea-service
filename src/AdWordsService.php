@@ -58,22 +58,9 @@ class AdWordsService
         $selector->setPaging(new Paging(0, self::PAGE_LIMIT));
         $selector->setSearchParameters($this->getSearchParameters($keywords, $language, $location, $included, $excluded));
 
-        $currentTry = 0;
-
-        while (true) {
-            try {
-                $results = $this->targetingIdeaService->get($selector);
-
-                return $results;
-            } catch (ApiException $exception) {
-                $error = $exception->getErrors()[0];
-                if ($error instanceof RateExceededError and ++$currentTry < self::MAX_RETRIES) {
-                    sleep($error->getRetryAfterSeconds());
-                } else {
-                    throw $exception;
-                }
-            }
-        }
+        return (new ExponentialBackoff(10))->execute(function () use ($selector) {
+            return $this->targetingIdeaService->get($selector);
+        });
     }
 
     /**
