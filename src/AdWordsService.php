@@ -9,7 +9,6 @@ use Google\AdsApi\AdWords\v201809\cm\Location;
 use Google\AdsApi\AdWords\v201809\cm\ApiException;
 use Google\AdsApi\AdWords\v201809\o\AttributeType;
 use Google\AdsApi\AdWords\v201809\cm\NetworkSetting;
-use Google\AdsApi\AdWords\v201809\cm\RateExceededError;
 use Google\AdsApi\AdWords\v201809\o\TargetingIdeaService;
 use Google\AdsApi\AdWords\v201809\o\TargetingIdeaSelector;
 use Google\AdsApi\AdWords\v201809\o\NetworkSearchParameter;
