@@ -8,7 +8,7 @@ use SchulzeFelix\AdWords\AdWordsServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
-    public function setUp()
+    public function setUp() : void
     {
         parent::setUp();
     }
