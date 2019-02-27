@@ -8,6 +8,7 @@ use Google\AdsApi\Common\AdsLoggerFactory;
 use Google\AdsApi\Common\OAuth2TokenBuilder;
 use Google\AdsApi\AdWords\AdWordsSessionBuilder;
 use Google\AdsApi\AdWords\v201809\o\TargetingIdeaService;
+use Illuminate\Support\Arr;
 
 class AdWordsServiceFactory
 {
@@ -42,8 +43,8 @@ class AdWordsServiceFactory
         $soapLogger = (new AdsLoggerFactory())
             ->createLogger(
                 self::$DEFAULT_SOAP_LOGGER_CHANNEL,
-                array_get($config, 'soap_log_file_path', null),
-                array_get($config, 'soap_log_level', 'ERROR')
+                Arr::get(($config, 'soap_log_file_path', null),
+                Arr::get(($config, 'soap_log_level', 'ERROR')
             );
 
         $session = (new AdWordsSessionBuilder())
