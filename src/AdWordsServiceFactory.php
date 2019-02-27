@@ -43,8 +43,8 @@ class AdWordsServiceFactory
         $soapLogger = (new AdsLoggerFactory())
             ->createLogger(
                 self::$DEFAULT_SOAP_LOGGER_CHANNEL,
-                Arr::get(($config, 'soap_log_file_path', null),
-                Arr::get(($config, 'soap_log_level', 'ERROR')
+                Arr::get($config, 'soap_log_file_path', null),
+                Arr::get($config, 'soap_log_level', 'ERROR')
             );
 
         $session = (new AdWordsSessionBuilder())
