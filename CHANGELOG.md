@@ -2,6 +2,9 @@
 
 All Notable changes to `Laravel AdWords Targeting Idea Service` will be documented in this file.
 
+## [1.4.1] - 2019-03-10
+- fix dependencies for carbon v2 
+
 ## [1.4.0] - 2019-02-27
 - drop support for Laravel 5.7 and lower
 - drop support for PHP 7.1 and lower
