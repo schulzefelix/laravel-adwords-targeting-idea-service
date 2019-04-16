@@ -61,7 +61,7 @@ class ExponentialBackoff
                     }
                 }
 
-                if ($exception->getCode() == 403) {
+                if (in_array($exception->getCode(), [400, 403])) {
                     break;
                 }
 
