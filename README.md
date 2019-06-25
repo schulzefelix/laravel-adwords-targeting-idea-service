@@ -144,3 +144,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-code-quality]: https://scrutinizer-ci.com/g/schulzefelix/laravel-adwords-targeting-idea-service
 [link-downloads]: https://packagist.org/packages/schulzefelix/laravel-adwords-targeting-idea-service
 [link-author]: https://github.com/schulzefelix
+[link-contributors]: ../../contributors
