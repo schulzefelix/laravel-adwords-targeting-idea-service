@@ -17,7 +17,7 @@ This package can be installed through Composer.
 $ composer require schulzefelix/laravel-adwords-targeting-idea-service
 ```
 
-In Laravel 5.5 the package will autoregister the service provider. If package discovery is disabled add the following.
+The package will autoregister the service provider. If package discovery is disabled add the following.
 
 ```php
 // config/app.php
@@ -28,7 +28,7 @@ In Laravel 5.5 the package will autoregister the service provider. If package di
 ];
 ```
 
-In Laravel 5.5 the package will autoregister the facade. If package discovery is disabled add the following.
+The package will autoregister the facade. If package discovery is disabled add the following.
 
 ```php
 // config/app.php
@@ -116,7 +116,7 @@ $ vendor/bin/phpunit
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details.
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security
 
@@ -144,4 +144,3 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-code-quality]: https://scrutinizer-ci.com/g/schulzefelix/laravel-adwords-targeting-idea-service
 [link-downloads]: https://packagist.org/packages/schulzefelix/laravel-adwords-targeting-idea-service
 [link-author]: https://github.com/schulzefelix
-[link-contributors]: ../../contributors
