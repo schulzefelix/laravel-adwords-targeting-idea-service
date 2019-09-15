@@ -1,6 +1,8 @@
 # Changelog
 
 All Notable changes to `Laravel AdWords Targeting Idea Service` will be documented in this file.
+## [1.5.0] - 2019-09-15
+- add support for Laravel 6
 
 ## [1.4.1] - 2019-03-10
 - fix dependencies for carbon v2 
