@@ -3,8 +3,8 @@
 namespace SchulzeFelix\AdWords;
 
 use Illuminate\Support\ServiceProvider;
-use SchulzeFelix\AdWords\Exceptions\InvalidConfiguration;
 use SchulzeFelix\AdWords\Commands\GenerateRefreshTokenCommand;
+use SchulzeFelix\AdWords\Exceptions\InvalidConfiguration;
 
 class AdWordsServiceProvider extends ServiceProvider
 {

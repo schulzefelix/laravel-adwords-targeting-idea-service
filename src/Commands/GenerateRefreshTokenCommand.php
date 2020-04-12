@@ -3,9 +3,9 @@
 namespace SchulzeFelix\AdWords\Commands;
 
 use Exception;
+use Google\Auth\CredentialsLoader;
 use Google\Auth\OAuth2;
 use Illuminate\Console\Command;
-use Google\Auth\CredentialsLoader;
 
 class GenerateRefreshTokenCommand extends Command
 {

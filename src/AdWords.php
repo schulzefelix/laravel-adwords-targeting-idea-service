@@ -2,13 +2,13 @@
 
 namespace SchulzeFelix\AdWords;
 
-use Illuminate\Support\Collection;
-use Google\AdsApi\Common\Util\MapEntries;
-use SchulzeFelix\AdWords\Responses\Keyword;
-use Google\AdsApi\AdWords\v201809\o\RequestType;
 use Google\AdsApi\AdWords\v201809\o\AttributeType;
-use SchulzeFelix\AdWords\Responses\MonthlySearchVolume;
+use Google\AdsApi\AdWords\v201809\o\RequestType;
 use Google\AdsApi\AdWords\v201809\o\TargetingIdeaService;
+use Google\AdsApi\Common\Util\MapEntries;
+use Illuminate\Support\Collection;
+use SchulzeFelix\AdWords\Responses\Keyword;
+use SchulzeFelix\AdWords\Responses\MonthlySearchVolume;
 
 class AdWords
 {
