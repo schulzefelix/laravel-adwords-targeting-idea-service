@@ -2,13 +2,13 @@
 
 namespace SchulzeFelix\AdWords\Tests\Integration;
 
-use SchulzeFelix\AdWords\AdWordsFacade;
 use Orchestra\Testbench\TestCase as Orchestra;
+use SchulzeFelix\AdWords\AdWordsFacade;
 use SchulzeFelix\AdWords\AdWordsServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
-    public function setUp() : void
+    public function setUp(): void
     {
         parent::setUp();
     }
