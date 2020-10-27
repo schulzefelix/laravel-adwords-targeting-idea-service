@@ -1,6 +1,12 @@
 # Changelog
 
 All Notable changes to `Laravel AdWords Targeting Idea Service` will be documented in this file.
+## [1.7.0] - 2020-10-27
+ - Add Compatibility With Laravel 8
+ - Drop support for Laravel 7
+ - Minimum PHP 7.4
+ - Using version 49.0 of googleads/googleads-php-lib
+
 ## [1.6.0] - 2020-04-12
  - Add Compatibility With Laravel 7
  - Drop support for Laravel 6
