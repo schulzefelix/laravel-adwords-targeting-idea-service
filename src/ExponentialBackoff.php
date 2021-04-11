@@ -61,9 +61,10 @@ class ExponentialBackoff
                     }
                 }
 
-                if (in_array($exception->getCode(), [400, 403])) {
+                if (in_array($exception->getCode(), [0, 400, 403])) {
                     break;
                 }
+
 
                 if ($retryAttempt >= $this->retries) {
                     break;

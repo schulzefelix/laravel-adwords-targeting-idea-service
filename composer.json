@@ -21,12 +21,12 @@
     "require": {
         "php": "^7.3|^8.0",
         "laravel/framework": "^8.0",
-        "googleads/googleads-php-lib": "^49.0",
-        "schulzefelix/laravel-data-transfer-object": "^1.4.1"
+        "googleads/googleads-php-lib": "^52.0",
+        "schulzefelix/laravel-data-transfer-object": "^1.4.0"
     },
     "require-dev": {
-        "mockery/mockery": "^1.3",
-        "orchestra/testbench": "^6.0",
+        "mockery/mockery": "^1.4.2",
+        "orchestra/testbench": "^5.0|^6.0",
         "phpunit/phpunit" : "^8.0|^9.0"
     },
     "autoload": {
