@@ -19,10 +19,10 @@
         }
     ],
     "require": {
-        "php": "^7.3",
+        "php": "^7.3|^8.0",
         "laravel/framework": "^8.0",
         "googleads/googleads-php-lib": "^49.0",
-        "schulzefelix/laravel-data-transfer-object": "^1.4.0"
+        "schulzefelix/laravel-data-transfer-object": "^1.4.1"
     },
     "require-dev": {
         "mockery/mockery": "^1.3",
