@@ -20,14 +20,14 @@
     ],
     "require": {
         "php": "^7.3|^8.0",
-        "laravel/framework": "^8.0",
+        "laravel/framework": "^9.0",
         "googleads/googleads-php-lib": "^52.0",
         "schulzefelix/laravel-data-transfer-object": "^1.4.0"
     },
     "require-dev": {
         "mockery/mockery": "^1.4.2",
-        "orchestra/testbench": "^5.0|^6.0",
-        "phpunit/phpunit" : "^8.0|^9.0"
+        "orchestra/testbench": "^7.1.0",
+        "phpunit/phpunit": "^8.0|^9.0"
     },
     "autoload": {
         "psr-4": {
