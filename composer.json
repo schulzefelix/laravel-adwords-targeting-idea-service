@@ -19,15 +19,16 @@
         }
     ],
     "require": {
-        "php": "^7.3|^8.0",
-        "laravel/framework": "^8.0",
-        "googleads/googleads-php-lib": "^52.0",
-        "schulzefelix/laravel-data-transfer-object": "^1.4.0"
+        "php": "^8.0.2",
+        "illuminate/console": "^9.0",
+        "illuminate/support": "^9.0",
+        "googleads/googleads-php-lib": "^56.0",
+        "schulzefelix/laravel-data-transfer-object": "^1.5.0"
     },
     "require-dev": {
-        "mockery/mockery": "^1.4.2",
-        "orchestra/testbench": "^5.0|^6.0",
-        "phpunit/phpunit" : "^8.0|^9.0"
+        "mockery/mockery": "^1.4",
+        "orchestra/testbench": "^7.0",
+        "phpunit/phpunit": "^9.4"
     },
     "autoload": {
         "psr-4": {
